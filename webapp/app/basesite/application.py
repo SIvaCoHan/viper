@@ -1,4 +1,8 @@
+#! /usr/bin/env python2.7
 # -*- coding: utf-8 -*-
+# Author: SivaCoHan <sivacohan@gmail.com>
+# Date: 2014-06-13
+# File: application.py
 
 import os
 import logging
@@ -9,7 +13,6 @@ from basesite.configs import db, cache
 
 from basesite.views import test_view as test
 from basesite.views import user_view as user
-# add some other view
 
 __all__ = ['create_app']
 
@@ -17,9 +20,7 @@ __all__ = ['create_app']
 DEFAULT_APP_NAME = 'basesite'
 
 REGISTER_BLUE_PRINTS = (
-    (test.instance, '/aaa'),
-    (user.instance, '/bbb'),
-    # add your blue print here
+    (user.instance, '/user'),
 )
 
 
@@ -43,7 +44,7 @@ def configure_app(app, config):
     if config is not None:
         app.config.from_object(config)
 
-    app.config.from_envvar('APP_CONFIG', silent=True)
+    # app.config.from_envvar('APP_CONFIG', silent=True)
 
 
 def configure_db(app):

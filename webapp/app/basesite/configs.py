@@ -1,4 +1,8 @@
+#! /usr/bin/env python2.7
 # -*- coding: utf-8 -*-
+# Author: SivaCoHan <sivacohan@gmail.com>
+# Date: 2014-06-13
+# File: configs.py
 
 import datetime
 
@@ -15,7 +19,7 @@ class DefaultConfig(object):
 
     DEBUG = True
     SECRET_KEY = 'it is secret'
-    SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg2://xxxxxxxxxxxxx'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dbu:dddd@localhost/viper'
     SQLALCHEMY_ECHO = False
 
 
@@ -25,7 +29,7 @@ class TestConfig(object):
 
     DEBUG = True
     SECRET_KEY = 'it is secret'
-    SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg2://xxxxxxxxxxxxx'
+    SQLALCHEMY_DATABASE_URI= 'postgresql+psycopg2://dbu:dddd@localhost/viper'
     SQLALCHEMY_ECHO = False
 
 
@@ -35,5 +39,5 @@ class ProductionConfig(object):
 
     DEBUG = False
     SECRET_KEY = 'it is secret'
-    SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg2://xxxxxxxxxxxxx'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dbu:dddd@localhost/viper'
     SQLALCHEMY_ECHO = False
