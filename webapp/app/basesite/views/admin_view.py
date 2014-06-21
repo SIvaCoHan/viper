@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Author: sivacohan <sivacohan@gmail.com>
 # Date: 2014-06-20
-# File: article_view.py
+# File: admin_view.py
 
 import sys
 import time
@@ -19,12 +19,7 @@ from flask.views import MethodView
 from flask.views import View
 
 
-instance = Blueprint('user', __name__)
-
-
-class RegisterView(MethodView):
-    def get(self):
-        return render_template('register.html')
+instance = Blueprint('admin', __name__)
 
 
 class LoginView(MethodView):
