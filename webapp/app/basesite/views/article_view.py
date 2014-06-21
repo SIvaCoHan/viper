@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Author: sivacohan <sivacohan@gmail.com>
 # Date: 2014-06-20
-# File: user_view.py
+# File: article_view.py
 
 import sys
 import time

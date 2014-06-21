@@ -11,7 +11,6 @@ from flask import Flask
 from basesite import configs
 from basesite.configs import db, cache
 
-from basesite.views import test_view as test
 from basesite.views import user_view as user
 
 __all__ = ['create_app']
@@ -44,7 +43,7 @@ def configure_app(app, config):
     if config is not None:
         app.config.from_object(config)
 
-    # app.config.from_envvar('APP_CONFIG', silent=True)
+    app.config.from_envvar('APP_CONFIG', silent=True)
 
 
 def configure_db(app):

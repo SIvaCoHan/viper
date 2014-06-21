@@ -21,19 +21,29 @@ app = create_app
 
 @manager.command
 def initdb():
+    "init your database"
     if prompt_bool("Are you sure? You will init your database"):
         db.create_all()
 
 
 @manager.command
 def dropdb():
+    "drop your database"
     if prompt_bool("Are you sure? You will lose all your data!"):
         db.drop_all()
+
+
+@manager.command
+def runtest():
+    "run unittest"
+    if prompt_bool("Are you sure to run the test? You can have a break now!"):
+        os.system("nosetests tests/")
 
 
 @manager.option('-u', '--username', dest='username', required=True)
 @manager.option('-p', '--password', dest='password', required=True)
 def createuser(username=None, password=None):
+    "create a user for your app"
     u = UserModel(username=username, password=password)
     db.session.add(u)
     db.session.commit()
