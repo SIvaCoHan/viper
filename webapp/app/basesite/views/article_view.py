@@ -19,22 +19,22 @@ from flask.views import MethodView
 from flask.views import View
 
 
-instance = Blueprint('user', __name__)
+instance = Blueprint('article', __name__)
 
 
-class RegisterView(MethodView):
+class PostArticleView(MethodView):
     def get(self):
-        return render_template('register.html')
+        return render_template('post.html')
 
 
-class LoginView(MethodView):
+class GetArticleView(MethodView):
     def get(self):
-        return render_template('login.html')
+        return render_template('article.html')
 
 
-class ProfileView(MethodView):
+class ArticleListView(MethodView):
     def get(self):
-        return render_template('profile.html')
+        return render_template('article_list.html')
 
 
 # Add instance

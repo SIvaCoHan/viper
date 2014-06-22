@@ -1,1 +1,42 @@
-This is base
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{{title}}</title>
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">MonsterLab.ORG</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    {% block content %}
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <footer>
+            <p>&copy; 2014 monsterlab.org</p>
+        </footer>
+    </body>
+{% block script%}
+{% endblock %}
+</html>

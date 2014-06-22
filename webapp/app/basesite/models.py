@@ -10,7 +10,7 @@ class UserModel(db.Model):
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.VARCHAR(128), nullable=False)
+    email = db.Column(db.VARCHAR(128), nullable=False)
     passhash = db.Column(db.CHAR(40), nullable=False)
     dt_create = db.Column(
         db.DateTime(),
@@ -18,8 +18,8 @@ class UserModel(db.Model):
         default=db.func.current_timestamp()
     )
 
-    def __init__(self, username, password):
-        self.username = username
+    def __init__(self, email, password):
+        self.email = email
         self.passhash = self._hash_password(password)
 
     def _hash_password(self, password):
@@ -29,6 +29,22 @@ class UserModel(db.Model):
         if(self._hash_password(password) == self.passhash):
             return True
         return False
+
+
+class ProfileModel(db.Model):
+
+    __tablename__ = 'profile'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.VARCHAR(128), nullable=False)
+    school = db.Column(db.VARCHAR(128), nullable=False)
+    startyear = db.Column(db.Integer, nullable=False)
+    endyear = db.Column(db.Integer, nullable=False)
+    dt_create = db.Column(
+        db.DateTime(),
+        nullable=False,
+        default=db.func.current_timestamp()
+    )
 
 
 class ArticleModel(db.Model):

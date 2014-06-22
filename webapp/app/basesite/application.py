@@ -11,7 +11,8 @@ from flask import Flask
 from basesite import configs
 from basesite.configs import db, cache
 
-from basesite.views import user_view as user
+from basesite.views import user_view
+from basesite.views import system_view
 
 __all__ = ['create_app']
 
@@ -19,7 +20,8 @@ __all__ = ['create_app']
 DEFAULT_APP_NAME = 'basesite'
 
 REGISTER_BLUE_PRINTS = (
-    (user.instance, '/user'),
+    (system_view.instance, ''),
+    (user_view.instance, '/user'),
 )
 
 

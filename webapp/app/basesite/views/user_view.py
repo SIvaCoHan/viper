@@ -22,16 +22,6 @@ from flask.views import View
 instance = Blueprint('user', __name__)
 
 
-class RegisterView(MethodView):
-    def get(self):
-        return render_template('register.html')
-
-
-class LoginView(MethodView):
-    def get(self):
-        return render_template('login.html')
-
-
 class ProfileView(MethodView):
     def get(self):
         return render_template('profile.html')
@@ -39,7 +29,7 @@ class ProfileView(MethodView):
 
 # Add instance
 instance.add_url_rule(
-    '/register',
-    view_func=RegisterView.as_view('register'),
+    '/profile',
+    view_func=ProfileView.as_view('profile'),
     methods=['GET', ]
 )

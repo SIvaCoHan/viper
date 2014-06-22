@@ -1,0 +1,52 @@
+{% macro render_pagination(pagination, endpoint) %}
+    {% if pagination.has_prev %}
+        <a href="{{ url_for(endpoint, page=pagination.prev_num) }}">上一页</a>
+    {% endif %}
+    {%- for page in pagination.iter_pages() %}
+        {% if page %}
+            {% if page != pagination.page %}
+                <a href="{{ url_for(endpoint, page=page) }}">{{ page }}</a>
+            {% else %}
+                <strong>{{ page }}</strong>
+            {% endif %}
+        {% else %}
+                <span class=ellipsis>…</span>
+        {% endif %}
+    {%- endfor %}
+    {% if pagination.has_next %}
+        <a href="{{ url_for(endpoint, page=pagination.next_num) }}">下一页</a>
+    {% endif %}
+{% endmacro %}
+
+{% macro render_form_item(form_item) %}
+    <tr>
+        <td>{{form_item.label}}</td>
+        <td>{{form_item()}}</td>
+    </tr>
+{% endmacro%}
+
+{% macro render_form_submit(value, colspan='2') %}
+    <tr>
+        <td colspan="{{colspan}}">
+            <input type="submit" class="btn" value="{{value}}" />
+        </td>
+    </tr>
+{% endmacro%}
+
+{% macro render_user_nav(user) %}
+    <li><a href="{{url_for('user_index')}}">系统主页</a></li>
+    {% if user.status == 'active' %}
+        {% if user.type == 'ctcmc' %}
+            <li><a href="{{url_for('user_list')}}">用户列表</a></li>
+            <li><a href="{{url_for('ad_register')}}">注册广告</a></li>
+            <li><a href="{{url_for('ad_list')}}">广告列表</a></li>
+            <li><a href="{{url_for('ad_illegal_list')}}">疑似违法广告列表</a></li>
+        {% elif user.type == 'bru' %}
+            <li><a href="{{url_for('ad_register')}}">注册广告</a></li>
+            <li><a href="{{url_for('ad_list')}}">广告列表</a></li>
+        {% elif user.type == 'company' %}
+            <li><a href="{{url_for('ad_register')}}">注册广告</a></li>
+            <li><a href="{{url_for('ad_list')}}">广告列表</a></li>
+        {% endif %}
+    {% endif %}
+{% endmacro%}
