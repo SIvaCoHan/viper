@@ -33,8 +33,3 @@ class ProfileView(MethodView):
 
 
 # Add instance
-instance.add_url_rule(
-    '/register',
-    view_func=RegisterView.as_view('register'),
-    methods=['GET', ]
-)

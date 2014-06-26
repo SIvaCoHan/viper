@@ -26,20 +26,46 @@ class PostArticleView(MethodView):
     def get(self):
         return render_template('post.html')
 
+    def post(self):
+        pass
+
+
+class UpdateArticleView(MethodView):
+    def get(self):
+        return render_template('post.html')
+
+    def post(self):
+        pass
+
 
 class GetArticleView(MethodView):
     def get(self):
         return render_template('article.html')
 
 
-class ArticleListView(MethodView):
+class ListArticleView(MethodView):
     def get(self):
         return render_template('article_list.html')
 
 
 # Add instance
 instance.add_url_rule(
-    '/register',
-    view_func=RegisterView.as_view('register'),
+    '/post',
+    view_func=PostArticleView.as_view('post_article'),
+    methods=['GET', ]
+)
+instance.add_url_rule(
+    '/update',
+    view_func=UpdateArticleView.as_view('update_article'),
+    methods=['GET', ]
+)
+instance.add_url_rule(
+    '/t',
+    view_func=GetArticleView.as_view('get_article'),
+    methods=['GET', ]
+)
+instance.add_url_rule(
+    '/list',
+    view_func=ListArticleView.as_view('list_article'),
     methods=['GET', ]
 )

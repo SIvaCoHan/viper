@@ -12,6 +12,8 @@ from flask.ext.cache import Cache
 db = SQLAlchemy()
 cache = Cache()
 
+DB_SALT = 'goodsalt'
+
 
 class DefaultConfig(object):
 

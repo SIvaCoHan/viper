@@ -1,1 +1,13 @@
-Login here
+{% extends 'base.html' %}
+{% from '_helpers.html' import render_form_item with context %}
+
+{% block content %}
+<form action="#" method="post">
+    <table>
+        {{form.hidden_tag()}}
+        {{ render_form_item(form.username) }}
+        {{ render_form_item(form.password) }}
+        <tr><td colspan="2"><input type="submit" value="登录" /></td></tr>
+    </table>
+</form>
+{% endblock%}

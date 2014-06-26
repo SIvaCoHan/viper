@@ -1,1 +1,15 @@
-Register here
+{% extends 'base.html' %}
+{% from '_helpers.html' import render_form_item with context %}
+
+{% block content %}
+<form action="#" method="post">
+    <table>
+        {{form.hidden_tag()}}
+        {{ render_form_item(form.username) }}
+        {{ render_form_item(form.email) }}
+        {{ render_form_item(form.password) }}
+        {{ render_form_item(form.confirm) }}
+        <tr><td colspan="2"><input type="submit" value="注册" /></td></tr>
+    </table>
+</form>
+{% endblock%}
